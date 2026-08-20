@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: `%s | ${CONTACT.site.name}`,
   },
   description: CONTACT.site.description,
-  keywords: CONTACT.site.keywords,
+  keywords: [...CONTACT.site.keywords],
   openGraph: {
     type: "website",
     locale: "es_AR",

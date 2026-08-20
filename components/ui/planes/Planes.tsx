@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Check, Dumbbell, Zap } from "lucide-react";
+import { Check, Dumbbell, MessageCircle, Zap } from "lucide-react";
 import { Button } from "../buttons/button";
+import { whatsappUrl } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 import AnimateOnScroll from "../animate/AnimateOnScroll";
 
@@ -17,6 +18,7 @@ const PLANS = [
       "Ideal para arrancar",
     ],
     cta: "probá una clase",
+    waMessage: "Hola! Quiero probar una clase en Stars Gym",
     highlighted: false,
   },
   {
@@ -31,6 +33,7 @@ const PLANS = [
       "El precio más bajo por sesión",
     ],
     cta: "comenzá hoy",
+    waMessage: "Hola! Quiero el plan mensual de Stars Gym",
     highlighted: true,
   },
 ] as const;
@@ -108,7 +111,7 @@ export default function Planes() {
                   <p className="mt-3 text-sm text-neutral-500">{plan.description}</p>
 
                   <ul className={cn(
-                    "mt-8 flex w-full flex-col gap-3 border-t pt-6 text-left",
+                    "mt-8 flex w-full flex-1 flex-col gap-3 border-t pt-6 text-left",
                     plan.highlighted ? "border-secondary/30" : "border-neutral-800"
                   )}>
                     {plan.features.map((feature) => (
@@ -127,6 +130,22 @@ export default function Planes() {
                       </li>
                     ))}
                   </ul>
+
+                  <Button
+                    render={
+                      <Link
+                        href={whatsappUrl(plan.waMessage)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      />
+                    }
+                    nativeButton={false}
+                    variant={plan.highlighted ? "default" : "outline"}
+                    className="mt-8 w-full cursor-pointer rounded-full text-xs font-bold uppercase tracking-wide"
+                  >
+                    {plan.cta}
+                    <MessageCircle data-icon="inline-end" aria-hidden="true" className="size-4" />
+                  </Button>
                 </div>
               ))}
             </div>

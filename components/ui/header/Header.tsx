@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { CalendarClock, Home, Menu, MessageCircle, Users, Wallet, X, Zap } from "lucide-react";
 import { Button } from ".././buttons/button";
+import { whatsappUrl } from "@/lib/contact";
 
 import { cn } from "@/lib/utils";
 
@@ -75,7 +76,17 @@ const Header = () => {
 
         <div className="flex items-center gap-3">
           {/* CTA desktop */}
-          <Button className={"text-xs uppercase font-bold cursor-pointer rounded-full"}>
+          <Button
+            render={
+              <Link
+                href={whatsappUrl("Hola! Quiero empezar a entrenar en Stars Gym")}
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            }
+            nativeButton={false}
+            className={"text-xs uppercase font-bold cursor-pointer rounded-full"}
+          >
             comenzá hoy
             <Zap data-icon="inline-end" aria-hidden="true" className="size-4" />
           </Button>
