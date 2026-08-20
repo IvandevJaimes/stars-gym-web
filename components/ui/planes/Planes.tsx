@@ -63,13 +63,26 @@ export default function Planes() {
               <div
                 key={plan.name}
                 className={cn(
-                  "flex flex-col items-center rounded-2xl border px-6 py-8 text-center transition-colors duration-300",
+                  "relative flex flex-col items-center rounded-2xl border px-6 py-8 text-center transition-colors duration-300",
                   plan.highlighted
-                    ? "border-primary/50 bg-primary/[0.04] hover:border-primary/70"
+                    ? "border-secondary/50 bg-secondary/[0.04] hover:border-secondary/70"
                     : "border-neutral-800 bg-neutral-900/40 hover:border-neutral-700"
                 )}
               >
-                <plan.icon aria-hidden="true" className="size-6 text-primary" />
+                {/* Badge */}
+                {plan.highlighted && (
+                  <span className="absolute -top-3 rounded-full bg-secondary px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest text-black">
+                    el más elegido
+                  </span>
+                )}
+
+                <plan.icon
+                  aria-hidden="true"
+                  className={cn(
+                    "size-6",
+                    plan.highlighted ? "text-secondary" : "text-primary"
+                  )}
+                />
 
                 <h3 className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
                   {plan.name}
@@ -90,7 +103,10 @@ export default function Planes() {
 
                 <p className="mt-3 text-sm text-neutral-500">{plan.description}</p>
 
-                <ul className="mt-8 flex w-full flex-col gap-3 border-t border-neutral-800 pt-6 text-left">
+                <ul className={cn(
+                  "mt-8 flex w-full flex-col gap-3 border-t pt-6 text-left",
+                  plan.highlighted ? "border-secondary/30" : "border-neutral-800"
+                )}>
                   {plan.features.map((feature) => (
                     <li
                       key={feature}
@@ -98,7 +114,10 @@ export default function Planes() {
                     >
                       <Check
                         aria-hidden="true"
-                        className="size-4 shrink-0 text-primary"
+                        className={cn(
+                          "size-4 shrink-0",
+                          plan.highlighted ? "text-secondary" : "text-primary"
+                        )}
                       />
                       {feature}
                     </li>

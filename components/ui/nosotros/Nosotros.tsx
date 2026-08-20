@@ -1,4 +1,5 @@
 import { Dumbbell, Heart, MapPin, Trophy } from "lucide-react";
+import { cn } from "@/lib/utils";
 import Galeria from "./Galeria";
 
 const HIGHLIGHTS = [
@@ -6,16 +7,19 @@ const HIGHLIGHTS = [
     icon: Dumbbell,
     title: "Equipamiento de primer nivel",
     text: "Máquinas de última generación para que cada sesión sea efectiva y segura.",
+    accent: false,
   },
   {
     icon: Heart,
     title: "Comunidad que te banca",
     text: "Un espacio donde todos se conocen, se motivan y celebran cada logro juntos.",
+    accent: false,
   },
   {
     icon: Trophy,
     title: "Resultados reales",
     text: "No prometemos magia: te acompañamos paso a paso para que llegues a donde querés.",
+    accent: true,
   },
 ] as const;
 
@@ -50,7 +54,10 @@ export default function Nosotros() {
               >
                 <item.icon
                   aria-hidden="true"
-                  className="size-6 text-primary"
+                  className={cn(
+                    "size-6",
+                    item.accent ? "text-secondary" : "text-primary"
+                  )}
                 />
                 <dt className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
                   {item.title}

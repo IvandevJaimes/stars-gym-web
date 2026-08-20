@@ -127,6 +127,7 @@ function Lightbox({
             alt={item.alt}
             width={1200}
             height={1600}
+            sizes="90vw"
             className="max-h-[85vh] max-w-[90vw] object-contain"
             priority
           />
@@ -218,6 +219,7 @@ export default function Galeria() {
                   alt={item.alt}
                   width={600}
                   height={800}
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 33vw"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 {/* Overlay click para imágenes */}

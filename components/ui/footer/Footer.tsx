@@ -15,6 +15,11 @@ export default function Footer() {
 
   return (
     <footer className="relative border-t border-neutral-800 bg-neutral-900/50">
+      {/* Accent line */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-secondary/60 to-transparent"
+      />
       <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Top */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">

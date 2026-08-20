@@ -57,7 +57,7 @@ export default function Hero() {
             </Button>
           </div>
 
-          <dl className="mt-14 flex w-full max-w-2xl items-start justify-center divide-x divide-neutral-800 border-t border-neutral-800 pt-8">
+          <dl className="mt-14 flex w-full max-w-2xl items-start justify-center divide-x divide-neutral-800 border-t border-secondary/20 pt-8">
             {STATS.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center px-6 sm:px-10">
                 <dt className="font-display text-4xl font-bold text-white sm:text-5xl">

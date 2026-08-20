@@ -40,7 +40,7 @@ export default function Horarios() {
                 </dt>
                 <dd className="mt-4 whitespace-nowrap font-display text-5xl font-bold tracking-tight text-white">
                   {slot.from}
-                  <span aria-hidden="true" className="mx-2 text-neutral-600">
+                  <span aria-hidden="true" className="mx-2 text-secondary">
                     →
                   </span>
                   {slot.to}
@@ -49,7 +49,7 @@ export default function Horarios() {
             ))}
 
             <div className="flex flex-col items-center rounded-2xl border border-neutral-700/60 bg-neutral-900/20 px-6 py-8 text-center sm:col-span-2 lg:col-span-1">
-              <Moon aria-hidden="true" className="size-6 text-neutral-600" />
+              <Moon aria-hidden="true" className="size-6 text-secondary/60" />
               <dt className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
                 Domingos
               </dt>
