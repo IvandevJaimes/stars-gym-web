@@ -18,6 +18,7 @@ export const CONTACT = {
   },
   instagram: {
     url: "https://www.instagram.com/stars_gym16/",
+    handle: "@stars_gym16",
     label: "Instagram",
   },
   address: {
@@ -47,3 +48,9 @@ export const CONTACT = {
     ],
   },
 } as const;
+
+/** URL de WhatsApp con mensaje pre-cargado opcional. */
+export function whatsappUrl(message?: string) {
+  if (!message) return CONTACT.whatsapp.url;
+  return `${CONTACT.whatsapp.url}?text=${encodeURIComponent(message)}`;
+}

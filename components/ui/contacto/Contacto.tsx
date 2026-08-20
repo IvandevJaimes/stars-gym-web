@@ -1,4 +1,5 @@
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle } from "lucide-react";
+import InstagramIcon from "../icons/InstagramIcon";
 import { Button } from "../buttons/button";
 import Link from "next/link";
 import AnimateOnScroll from "../animate/AnimateOnScroll";
@@ -13,11 +14,11 @@ const CONTACTS = [
     external: true,
   },
   {
-    icon: Phone,
-    label: CONTACT.phone.label,
-    value: CONTACT.phone.number,
-    href: CONTACT.phone.tel,
-    external: false,
+    icon: InstagramIcon,
+    label: CONTACT.instagram.label,
+    value: CONTACT.instagram.handle,
+    href: CONTACT.instagram.url,
+    external: true,
   },
   {
     icon: Mail,
