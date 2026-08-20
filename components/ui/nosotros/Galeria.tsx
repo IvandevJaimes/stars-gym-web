@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { Play, X } from "lucide-react";
@@ -86,13 +86,6 @@ function Lightbox({
   }, []);
 
   /* click en backdrop cierra */
-  const onBackdrop = useCallback(
-    (e: React.MouseEvent) => {
-      if (e.target === backdropRef.current) onClose();
-    },
-    [onClose],
-  );
-
   return (
     <div
       ref={backdropRef}
@@ -146,17 +139,25 @@ function VideoCard({
   alt: string;
   onClick: () => void;
 }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
+
+  const handlePlay = () => {
+    /* .play() desde un gesto de usuario: única forma confiable en móvil.
+       El atributo autoPlay agregado dinámicamente NO reproduce (iOS lo ignora). */
+    videoRef.current?.play().catch(() => {});
+  };
 
   return (
     <>
       <video
+        ref={videoRef}
         src={src}
         muted
         playsInline
         loop
         preload="metadata"
-        {...(playing ? { autoPlay: true } : {})}
+        onPlay={() => setPlaying(true)}
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
 
@@ -164,7 +165,7 @@ function VideoCard({
       {!playing && (
         <button
           type="button"
-          onClick={() => setPlaying(true)}
+          onClick={handlePlay}
           className="absolute inset-0 z-10 flex items-center justify-center bg-black/30 cursor-pointer"
           aria-label="Reproducir video"
         >
