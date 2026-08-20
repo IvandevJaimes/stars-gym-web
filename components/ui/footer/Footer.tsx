@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MessageCircle } from "lucide-react";
+import { CONTACT } from "@/lib/contact";
 
 const NAV_LINKS = [
   { label: "Inicio", href: "#inicio" },
@@ -20,6 +21,7 @@ export default function Footer() {
         aria-hidden="true"
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-secondary/60 to-transparent"
       />
+
       <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Top */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
@@ -65,22 +67,21 @@ export default function Footer() {
               Contacto
             </h3>
             <ul className="mt-4 flex flex-col gap-2.5 text-sm text-neutral-500">
-              <li>Av. Alfredo Guzmán 380</li>
-              <li>Alderetes, Tucumán</li>
+              <li>{CONTACT.address.short}</li>
               <li>
                 <a
-                  href="tel:+5493814567890"
+                  href={CONTACT.phone.tel}
                   className="transition-colors duration-200 hover:text-primary"
                 >
-                  381 456-7890
+                  {CONTACT.phone.number}
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@starsgym.com"
+                  href={CONTACT.email.mailto}
                   className="transition-colors duration-200 hover:text-primary"
                 >
-                  info@starsgym.com
+                  {CONTACT.email.address}
                 </a>
               </li>
             </ul>
@@ -88,7 +89,7 @@ export default function Footer() {
             {/* Social */}
             <div className="mt-5 flex items-center gap-3">
               <a
-                href="https://www.instagram.com/"
+                href={CONTACT.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram de Stars Gym"
@@ -101,7 +102,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://wa.me/5493814567890"
+                href={CONTACT.whatsapp.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp de Stars Gym"
@@ -116,10 +117,10 @@ export default function Footer() {
         {/* Bottom */}
         <div className="mt-14 flex flex-col items-center gap-1 border-t border-neutral-800 pt-8 sm:flex-row sm:justify-between">
           <p className="text-xs text-neutral-600">
-            &copy; {year} Stars Gym. Todos los derechos reservados.
+            &copy; {year} {CONTACT.site.name}. Todos los derechos reservados.
           </p>
           <p className="text-xs text-neutral-600">
-            Alderetes, Tucumán, Argentina
+            {CONTACT.address.city}
           </p>
         </div>
       </div>

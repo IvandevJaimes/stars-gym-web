@@ -2,34 +2,35 @@ import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Button } from "../buttons/button";
 import Link from "next/link";
 import AnimateOnScroll from "../animate/AnimateOnScroll";
+import { CONTACT } from "@/lib/contact";
 
 const CONTACTS = [
   {
     icon: MessageCircle,
-    label: "WhatsApp",
+    label: CONTACT.whatsapp.label,
     value: "Escribinos",
-    href: "https://wa.me/5493814567890",
+    href: CONTACT.whatsapp.url,
     external: true,
   },
   {
     icon: Phone,
-    label: "Teléfono",
-    value: "381 456-7890",
-    href: "tel:+5493814567890",
+    label: CONTACT.phone.label,
+    value: CONTACT.phone.number,
+    href: CONTACT.phone.tel,
     external: false,
   },
   {
     icon: Mail,
-    label: "Email",
-    value: "info@starsgym.com",
-    href: "mailto:info@starsgym.com",
+    label: CONTACT.email.label,
+    value: CONTACT.email.address,
+    href: CONTACT.email.mailto,
     external: false,
   },
   {
     icon: MapPin,
-    label: "Dirección",
-    value: "Av. Alfredo Guzmán 380, Alderetes",
-    href: "https://maps.google.com/?q=Av.+Alfredo+Guzm%C3%A1n+380,+Alderetes,+Tucum%C3%A1n",
+    label: CONTACT.address.label,
+    value: CONTACT.address.short,
+    href: CONTACT.address.mapsUrl,
     external: true,
   },
 ] as const;
@@ -86,7 +87,7 @@ export default function Contacto() {
 
           <AnimateOnScroll variant="fade-up" delay={250}>
             <Button
-              render={<Link href="https://wa.me/5493814567890" target="_blank" rel="noopener noreferrer" />}
+              render={<Link href={CONTACT.whatsapp.url} target="_blank" rel="noopener noreferrer" />}
               nativeButton={false}
               size="lg"
               className="mt-12 cursor-pointer rounded-full text-xs font-bold uppercase tracking-wide"

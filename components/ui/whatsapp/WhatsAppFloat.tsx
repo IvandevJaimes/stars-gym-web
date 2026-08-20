@@ -1,11 +1,11 @@
 "use client";
 
-const WHATSAPP_URL = "https://wa.me/5493814567890";
+import { CONTACT } from "@/lib/contact";
 
 export default function WhatsAppFloat() {
   return (
     <a
-      href={WHATSAPP_URL}
+      href={CONTACT.whatsapp.url}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chateá con nosotros por WhatsApp"

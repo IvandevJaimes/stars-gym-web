@@ -42,7 +42,7 @@ export default function AnimateOnScroll({
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={cn("as-animate", `as-${variant}`, className)}
+      className={cn("as-animate relative", `as-${variant}`, className)}
     >
       {children}
     </div>

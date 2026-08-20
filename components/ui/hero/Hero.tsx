@@ -52,7 +52,7 @@ export default function Hero() {
             </p>
           </AnimateOnScroll>
 
-          <AnimateOnScroll variant="fade-up" delay={300}>
+          <AnimateOnScroll variant="fade-up"  delay={300}>
             <div className="mt-10 flex items-center gap-3 flex-row">
               <Button
                 render={<Link href="#planes" />}
@@ -66,7 +66,7 @@ export default function Hero() {
             </div>
           </AnimateOnScroll>
 
-          <AnimateOnScroll variant="fade-up" delay={400}>
+          <AnimateOnScroll variant="fade-up" className="w-full flex justify-center" delay={400}>
             <dl className="mt-14 flex w-full max-w-2xl items-start justify-center divide-x divide-neutral-800 border-t border-secondary/20 pt-8">
               {STATS.map((stat) => (
                 <div key={stat.label} className="flex flex-col items-center px-6 sm:px-10">

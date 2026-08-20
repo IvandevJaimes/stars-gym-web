@@ -1,5 +1,6 @@
 import { Dumbbell, Heart, MapPin, Trophy } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CONTACT } from "@/lib/contact";
 import Galeria from "./Galeria";
 import AnimateOnScroll from "../animate/AnimateOnScroll";
 
@@ -49,7 +50,7 @@ export default function Nosotros() {
             </p>
           </AnimateOnScroll>
 
-          <AnimateOnScroll variant="fade-up" delay={150}>
+          <AnimateOnScroll variant="fade-up" className="w-full" delay={150}>
             <dl className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-3">
               {HIGHLIGHTS.map((item) => (
                 <div
@@ -74,14 +75,14 @@ export default function Nosotros() {
             </dl>
           </AnimateOnScroll>
 
-          <AnimateOnScroll variant="fade-up" delay={200}>
+          <AnimateOnScroll variant="fade-up" className="w-full" delay={200}>
             <div className="mt-16 w-full">
               <Galeria />
             </div>
           </AnimateOnScroll>
 
           {/* Mapa */}
-          <AnimateOnScroll variant="fade-up" delay={250}>
+          <AnimateOnScroll variant="fade-up" className="w-full" delay={250}>
             <div className="mt-16 w-full">
               <div className="flex items-center justify-center gap-2">
                 <MapPin aria-hidden="true" className="size-5 text-primary" />
@@ -90,11 +91,11 @@ export default function Nosotros() {
                 </h3>
               </div>
               <p className="mt-3 text-sm text-neutral-400">
-                Av. Alfredo Guzmán 380, Alderetes, Tucumán
+                {CONTACT.address.full}
               </p>
               <div className="mt-6 overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/40">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.383411391775!2d-65.15248042527418!3d-26.827754876697902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225ed15766481d%3A0x9bfa10bbe115b5fc!2sAv.%20Alfredo%20Guzm%C3%A1n%20380%2C%20T4178%20Alderetes%2C%20Tucum%C3%A1n!5e0!3m2!1ses-419!2sar!4v1787156682517!5m2!1ses-419!2sar"
+                  src={CONTACT.address.mapsEmbed}
                   width="100%"
                   height={450}
                   style={{ border: 0 }}

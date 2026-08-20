@@ -167,6 +167,21 @@ html {
   animation: float 7s ease-in-out 1.2s infinite;
 }
 
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.4);
+  }
+}
+
 /* ─── Scroll animations ─── */
 
 .as-animate {
@@ -208,7 +223,8 @@ html {
 
   .animate-glow,
   .animate-float,
-  .animate-float-delayed {
+  .animate-float-delayed,
+  .animate-twinkle {
     animation: none;
   }
 }

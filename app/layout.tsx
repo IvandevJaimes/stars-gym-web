@@ -3,46 +3,36 @@ import { Barlow, Barlow_Condensed, Dancing_Script } from "next/font/google";
 import Header from "@/components/ui/header/Header";
 import Footer from "@/components/ui/footer/Footer";
 import WhatsAppFloat from "@/components/ui/whatsapp/WhatsAppFloat";
+import { CONTACT } from "@/lib/contact";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://starsgym.com.ar"),
+  metadataBase: new URL(CONTACT.site.url),
   title: {
-    default: "Stars Gym",
-    template: "%s | Stars Gym",
+    default: CONTACT.site.name,
+    template: `%s | ${CONTACT.site.name}`,
   },
-  description:
-    "Gimnasio de musculación en Alderetes, Tucumán. Entrenamientos guiados, planes flexibles y una comunidad que te empuja a dar un paso más cada día.",
-  keywords: [
-    "gimnasio",
-    "musculación",
-    "Alderetes",
-    "Tucumán",
-    "entrenamiento",
-    "fitness",
-    "Stars Gym",
-  ],
+  description: CONTACT.site.description,
+  keywords: CONTACT.site.keywords,
   openGraph: {
     type: "website",
     locale: "es_AR",
-    siteName: "Stars Gym",
-    title: "Stars Gym — Constancia, esfuerzo y comunidad",
-    description:
-      "Gimnasio de musculación en Alderetes, Tucumán. Entrenamientos guiados, planes flexibles y una comunidad que te empuja a dar un paso más cada día.",
+    siteName: CONTACT.site.name,
+    title: `${CONTACT.site.name} — ${CONTACT.site.tagline}`,
+    description: CONTACT.site.description,
     images: [
       {
         url: "/starsLogo.png",
         width: 1200,
         height: 630,
-        alt: "Stars Gym",
+        alt: CONTACT.site.name,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stars Gym — Constancia, esfuerzo y comunidad",
-    description:
-      "Gimnasio de musculación en Alderetes, Tucumán. Entrenamientos guiados, planes flexibles y una comunidad que te empuja a dar un paso más cada día.",
+    title: `${CONTACT.site.name} — ${CONTACT.site.tagline}`,
+    description: CONTACT.site.description,
     images: ["/starsLogo.png"],
   },
   robots: {

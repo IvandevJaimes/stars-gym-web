@@ -31,7 +31,7 @@ export default function Horarios() {
             </p>
           </AnimateOnScroll>
 
-          <AnimateOnScroll variant="fade-up" delay={150}>
+          <AnimateOnScroll variant="fade-up" className="w-full" delay={150}>
             <dl className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {OPEN_DAYS.map((slot) => (
                 <div

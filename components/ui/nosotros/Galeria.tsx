@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { Play, X } from "lucide-react";
 
@@ -99,7 +100,7 @@ function Lightbox({
       aria-modal="true"
       aria-label={item.alt}
       onClick={onClose}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm sm:p-8"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm"
     >
       {/* Botón cerrar */}
       <button
@@ -112,24 +113,21 @@ function Lightbox({
       </button>
 
       {/* Contenido */}
-      <div className="relative flex max-h-[85vh] max-w-[90vw] rounded-lg items-center justify-center">
+      <div className="flex h-full w-full items-center justify-center p-4 sm:p-8">
         {item.type === "video" ? (
           <video
             src={item.src}
             controls
             autoPlay
             playsInline
-            className="max-h-[85vh] max-w-[90vw] object-contain"
+            className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain"
           />
         ) : (
-          <Image
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             src={item.src}
             alt={item.alt}
-            width={1200}
-            height={1600}
-            sizes="90vw"
-            className="max-h-[85vh] max-w-[90vw] object-contain"
-            priority
+            className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain"
           />
         )}
       </div>
@@ -239,9 +237,11 @@ export default function Galeria() {
         ))}
       </div>
 
-      {lightbox !== null && (
-        <Lightbox index={lightbox} onClose={() => setLightbox(null)} />
-      )}
+      {lightbox !== null &&
+        createPortal(
+          <Lightbox index={lightbox} onClose={() => setLightbox(null)} />,
+          document.body,
+        )}
     </>
   );
 }
