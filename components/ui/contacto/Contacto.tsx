@@ -1,6 +1,7 @@
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Button } from "../buttons/button";
 import Link from "next/link";
+import AnimateOnScroll from "../animate/AnimateOnScroll";
 
 const CONTACTS = [
   {
@@ -47,47 +48,53 @@ export default function Contacto() {
 
       <div className="relative mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
-          <h2 className="mt-6 font-display text-5xl font-bold uppercase leading-[0.9] tracking-tight text-primary lg:text-6xl">
-            Contacto
-          </h2>
+          <AnimateOnScroll variant="fade-up">
+            <h2 className="mt-6 font-display text-5xl font-bold uppercase leading-[0.9] tracking-tight text-primary lg:text-6xl">
+              Contacto
+            </h2>
 
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-neutral-400 sm:text-lg">
-            ¿Tenés una duda o querés sumarte? Escribinos y te respondemos a la
-            brevedad.
-          </p>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-neutral-400 sm:text-lg">
+              ¿Tenés una duda o querés sumarte? Escribinos y te respondemos a la
+              brevedad.
+            </p>
+          </AnimateOnScroll>
 
-          <dl className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
-            {CONTACTS.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noopener noreferrer" : undefined}
-                className="group flex flex-col items-center rounded-2xl border border-neutral-800 bg-neutral-900/40 px-6 py-8 text-center transition-colors duration-300 hover:border-primary/40"
-              >
-                <item.icon
-                  aria-hidden="true"
-                  className="size-6 text-primary transition-transform duration-300 group-hover:scale-110"
-                />
-                <dt className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
-                  {item.label}
-                </dt>
-                <dd className="mt-2 text-sm font-medium text-white">
-                  {item.value}
-                </dd>
-              </Link>
-            ))}
-          </dl>
+          <AnimateOnScroll variant="fade-up" delay={150}>
+            <dl className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
+              {CONTACTS.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
+                  className="group flex flex-col items-center rounded-2xl border border-neutral-800 bg-neutral-900/40 px-6 py-8 text-center transition-colors duration-300 hover:border-primary/40"
+                >
+                  <item.icon
+                    aria-hidden="true"
+                    className="size-6 text-primary transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <dt className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
+                    {item.label}
+                  </dt>
+                  <dd className="mt-2 text-sm font-medium text-white">
+                    {item.value}
+                  </dd>
+                </Link>
+              ))}
+            </dl>
+          </AnimateOnScroll>
 
-          <Button
-            render={<Link href="https://wa.me/5493814567890" target="_blank" rel="noopener noreferrer" />}
-            nativeButton={false}
-            size="lg"
-            className="mt-12 cursor-pointer rounded-full text-xs font-bold uppercase tracking-wide"
-          >
-            escribinos por WhatsApp
-            <MessageCircle data-icon="inline-end" aria-hidden="true" className="size-4" />
-          </Button>
+          <AnimateOnScroll variant="fade-up" delay={250}>
+            <Button
+              render={<Link href="https://wa.me/5493814567890" target="_blank" rel="noopener noreferrer" />}
+              nativeButton={false}
+              size="lg"
+              className="mt-12 cursor-pointer rounded-full text-xs font-bold uppercase tracking-wide"
+            >
+              escribinos por WhatsApp
+              <MessageCircle data-icon="inline-end" aria-hidden="true" className="size-4" />
+            </Button>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

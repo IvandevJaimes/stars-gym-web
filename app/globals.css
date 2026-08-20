@@ -167,9 +167,43 @@ html {
   animation: float 7s ease-in-out 1.2s infinite;
 }
 
+/* ─── Scroll animations ─── */
+
+.as-animate {
+  opacity: 0;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.as-fade-up {
+  transform: translateY(24px);
+}
+
+.as-fade-in {
+  transform: none;
+}
+
+.as-fade-left {
+  transform: translateX(-24px);
+}
+
+.as-fade-right {
+  transform: translateX(24px);
+}
+
+.as-visible {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .as-animate {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 
   .animate-glow,
